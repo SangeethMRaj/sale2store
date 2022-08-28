@@ -1,0 +1,148 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    <div class="wrapper">
+
+        <!-- START HEADER AREA -->
+
+        <!-- END HEADER AREA -->
+
+        <!-- START MOBILE MENU AREA -->
+        <!-- END MOBILE MENU AREA -->
+
+        <!-- BREADCRUMBS SETCTION START -->
+
+        <!-- BREADCRUMBS SETCTION END -->
+
+        <!-- Start page content -->
+        <section id="page-content" class="page-wrapper section">
+
+            <!-- SHOP SECTION START -->
+            <div class="shop-section mb-80">
+
+                <div class="row m-5">
+                    {{#if orders}}
+                    <div class="col-lg-12">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <!-- shopping-cart start -->
+                            <div class="tab-pane active" id="shopping-cart">
+                                <div class="shopping-cart-content">
+                                    <form action="#">
+                                        <div class="table-content table-responsive mb-50">
+                                            <table class="text-center">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th class="product-thumbnail">Date</th>
+                                                        <th class="product-thumbnail">Order ID</th>
+                                                        <th class="product-subtotal">Payment method</th>
+                                                        <th class="product-subtotal">Amount</th>
+                                                        <th class="product-subtotal">Status</th>
+                                                        <th class="product-remove">View Products</th>
+                                                        <th class="product-remove">Invoice</th>
+                                                        <th class="product-remove">Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- tr -->
+                                                    {{#each orders}}
+                                                    <tr>
+
+                                                        <td class="product-price">{{this.date}}</td>
+                                                        <td class="product-price">{{this._id}}</td>
+
+                                                        <td class="product-subtotal">{{this.paymentMethod}}</td>
+                                                        <td class="product-subtotal">{{this.totalAmount}}</td>
+                                                        <td class="product-subtotal" style="color:green">{{this.status}}
+                                                        </td>
+                                                        <td class="product-subtotal">
+                                                            <a href="/view-orderlist-products/{{this._id}}"
+                                                                class="btn btn-primary">View Products</a>
+                                                        </td>
+                                                        <td class="product-subtotal">
+                                                            <a href="/order-invoice/{{this._id}}"
+                                                                class="btn btn-info">Invoice</a>
+                                                        </td>
+                                                        <td class="product-subtotal">
+
+                                                            {{#if return}}
+                                                            <div class="mt-2">
+                                                                <a href="/return-order-status/{{this._id}}"
+                                                                    class="btn btn-success">Return Order</a>
+                                                            </div>
+                                                            {{/if}}
+                                                            {{#if cancel}}
+
+                                                            {{else}}
+                                                            <div>
+                                                                <a href="/cancel-order/{{this._id}}"
+                                                                    class="btn btn-danger"> Cancel</a>
+                                                            </div>
+                                                            {{/if}}
+
+                                                        </td>
+                                                    </tr>
+                                                    {{/each}}
+                                                    <!-- tr -->
+
+                                                    <!-- tr -->
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- shopping-cart end -->
+
+                            <!-- checkout start -->
+
+                            <!-- checkout end -->
+                            <!-- order-complete start -->
+
+                            <!-- order-complete end -->
+                        </div>
+                    </div>
+                    {{else}}
+
+                    <div>
+                        <h1 class="text-center mt-5">Yout Orders is Empty !! Continue Shopping</h1>
+                    </div>
+                    <div class="d-flex justify-content-center mt-5 ">
+                        <img src="http://almureed.ae/assets/website/images/empty-cart.gif" class="img-fluid" alt="">
+                    </div>
+                    <div class="d-flex justify-content-center my-auto mt-5">
+                        <a href="/">
+                            <button type="submit" class="btn box-shadow submit-btn-1 btn-hover-2  "> Continue Shopping
+                            </button>
+                        </a>
+                    </div>
+                    {{/if}}
+                </div>
+                
+
+            </div>
+            <!-- SHOP SECTION END -->
+
+        </section>
+        <!-- End page content -->
+
+        <!-- START FOOTER AREA -->
+    
+        <!-- END FOOTER AREA -->
+
+
+</body>
+
+</html>

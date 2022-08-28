@@ -1,0 +1,352 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAulBMVEUac+j///8YWrwKVboZbNtgitEAbecAa+cAaucYcuiPtvMYX8UAULkOcOgacOP7/f8ATbgYX8Q1gOro7vhdle3H2vmiwfQAUroZZM32+v5hme7m8P3V4/oAZ+ezzPbd6PsASbdylNFpjc9woe+ev/R/qvBOjezC1vgcd+lZi+EAXNHI1ey9zeouaMIgYb9WgMqvweV7p/Aufeo+gueKrOaMpdYIYM5DdMWBn9abs95KeMenvOLD1/iTuPL12ZlXAAAFSklEQVR4nO3ciXLaOhgFYCMbycLYLMbYBAI0BEoTsnLbLLd5/9e6MgSapBgsMMjyPV9nOp1mptUZbV702zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIqKc+4ucNUtOQpOmTudnAmtx/jPBUspIs3HQbf0rtNrtwzmqm5Vhigb9Upf+O2mXZR+5Oej7td8C31OVbctE6z5V/+t1MZFGKr2Q1K+WGDoHpHb7W0BxXRs6j1Suf19e0Cxrk60jmj3dwUUk7Gp8UC133YHFANV37lIW2kCiuXGVt3SPXHDT5ewNGaq27oflmISLnUetRyn7mPagOLqRstOTLOOrhkaXqLKdGGp1NawE2mqnWKlw/TrRHsgk7B0pt1a4zZrUgn1G6buSCpgaaDdrs923FN81XnUbSLagVzC0kS3hDTxxj6BbksN55sfzSQbaXabKJ/wofAJtetDV27DFwk1m4cGk11pWrol3P0I6rPaXLeE9B+5hL6nusWy3B9yCa+1e4nBo45Uwp9Ut4TG1Uwq4Y2nXcJfFzIBB0P9Elr1tM8SY99M1e2Vxr3wZ/qAftVR3WB5HpHoxOcwUt3ePThm6pnYqxJLdXP3YJFqyuW09mQS1a3dh0cISTdOn6tEx0FqGBExn9I8cLsfEqLfXmHEqykh4d3ugLM6IRqupAuRiFje1YuzkGjahcZyJoZP269PX0QPajoLY5ZovVm/Ts7XKccBG6rbeQAxTgmpf0taUu9v4yFKtLs1/IA34gQhed6UcfYadyDRcrNf44azCBGaF1/Gqv9yUzUXP9N3Ei6sIorpWC2/zAZ+p+P71/8+3wzD5d/r3YMxvpyLi5BhfSjGZTisv/deIQLGLJKoofMi84HnJAS0dDygsJkX/R2vofkS8xk3PKvxKV9UiAn4ERe/LCtyGo4TRVZBpt8WhZl+AACQobgsjzJm2zalVPzOGHVdXpA9g7vMZtN5a1S57AdB0Ov1xO/9dmXUmk/FT/R7bfiJK/prProMuv6mJ241vxu0H+Yipp7FiFyMyslbsPtNcCe4bDGbajZmOaXNcSBxwjSozKk+dWyc2vOK7IGhUmnwNrG1mJWc0XFP7nzwn5BjN/dHMlzW7O8Zb6HWn+d6sLpsInkUaoOglduM7vlE9mBwUsbzPGbkbHp4/638fszffHTlKkh2unRz1o1sIr89bNed5KkCg59XMs4XezvPzUh1WTYrzFc9mpORSpuyZ7rT8ue5OPxNJzIH2OR0WjmISCeHXMPsUlNfre825U7KSkdUXa3vTo81B1e6U7URWXbXMUl+K90X6dYPl2RkrHAqcuOYq8xKTeGLHNkyyj31ldWX8ukpulB04lRVJ9JjXI1uUlE1E1nW9xNJBoqW02Nv9n90FG377tmJAiorEqbjkyVUtCWebKFRttRk/GQmjwmL34dIiIRIiIRFSvhW+ISK+tA9xSOMpQdFV96SHxU4wA81Cbl1srsnS9FN/tWWmq1MXV+pCSj5UYEDXPxSlFDuowL78+uqDvZbZvkkCcumooTcI3W5z3vsZ1ZXV0Wbuh79EL74XxTlW9Sj3xw7on9jKixRtAgxb48b0b81VZbwcUdETPttiL3M4lJFR92bmfijAoTU72S/XJZW725RKay0Wn9RdWdW7+6zfxXcvb9b1poqruJbFk+a1ZC8lrP0SsL3WlrFX5Tgxrqs0MzWuhBTdaHbulj7SBzVAeNikQ0VsJmJ8nGEP7GS+VBOXmpNueFF2Yd0Ik/9CF0TLfE8z8qO+NfyV0ub6YzJx/QDAAAAAAAAAAAAAAAAAAAAAAAAAPgf+g+3VF6s4aah2wAAAABJRU5ErkJggg=="
+                        alt="" />
+
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="profile-head">
+                    {{#each usersDetails}}
+                    <h5>
+                        Name:<b> {{this.Name}}</b>
+                    </h5>
+
+                    <h5>
+                        Mobile No:<b> {{this.Phone}}</b>
+                    </h5>
+                    {{/each}}
+                    <div class="container d-flex justify-content-center">
+                        <div class="card p-3">
+                            <p class="text-dark">My Wallet</p>
+                            <div class="card-bottom pt-3 px-3 mb-2">
+                                <div class="d-flex flex-row justify-content-between text-align-center">
+                                    <div class="d-flex flex-column"><span>Balance amount</span>
+                                        <p><span class="text-white">Rs {{wallet.total}}</span></p>
+                                    </div>
+                                    <a href="/wallet-history" class="btn btn-primary mt-3"
+                                        style="border-radius:10px">Wallet History</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Address</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            {{#each usersDetails}}
+            <div class="col-md-2">
+                <a class="btn btn-primary" style="border-radius:10px" href="/edit-userprofile/{{this._id}}">Edit
+                    Profile</a>
+            </div>
+            {{/each}}
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+
+
+                    <p>Accounts</p>
+                    <a href="/user-add-to-cart">My Cart</a><br />
+                    <a href="/orders">My Orders</a><br />
+                    {{!-- <a href="">WordPress</a><br />
+                    <a href="">WooCommerce</a><br />
+                    <a href="">PHP, .Net</a><br /> --}}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        {{#each usersDetails}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{this.Name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{this.Email}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{this.Phone}}</p>
+                            </div>
+                        </div>
+                        {{/each}}
+                        <a href="/change-password" class="btn btn-success mt-5">Change password</a>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+                        <div class="card p-3 py-3 mt-3 card-1 text-center">
+
+                            <div class="p-3 card-2">
+                                {{#each address}}
+
+
+
+
+
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                {{this.name}}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="d-flex flex-column ms-3">
+                                                    <h6 class="fw-bold">{{this.name}}</h6>
+                                                    <span><b>{{this.address}}</b></span>
+                                                    <b>{{this.city}}</b>
+                                                    <b>{{this.state}}</b>
+                                                    <b>{{this.pincode}}</b>
+                                                    <b>{{this.phone}}</b>
+                                                    <a class="btn btn-danger" href="/delete-address/{{this._id}}"
+                                                        onclick="return confirm('Do you want to delete {{this.name}} ?')">delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                {{/each}}
+
+
+
+
+
+
+
+                                <div class="p-3 card-child mt-4 py-4">
+
+                                    <div class="d-flex flex-row align-items-center">
+
+
+                                        <div class="d-flex flex-column ms-3 mt-1">
+                                            <a href="/add-address" class="fw-bold text-primary">Add New Address</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</form>
+</div>
+
+<style>
+    .emp-profile {
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #fff;
+    }
+
+    .profile-img {
+        text-align: center;
+    }
+
+    .profile-img img {
+        width: 70%;
+        height: 100%;
+    }
+
+    .profile-img .file {
+        position: relative;
+        overflow: hidden;
+        margin-top: -20%;
+        width: 70%;
+        border: none;
+        border-radius: 0;
+        font-size: 15px;
+        background: #212529b8;
+    }
+
+    .profile-img .file input {
+        position: absolute;
+        opacity: 0;
+        right: 0;
+        top: 0;
+    }
+
+    .profile-head h5 {
+        color: #333;
+    }
+
+    .profile-head h6 {
+        color: #0062cc;
+    }
+
+    .profile-edit-btn {
+        border: none;
+        border-radius: 1.5rem;
+        width: 70%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+
+    .proile-rating {
+        font-size: 12px;
+        color: #818182;
+        margin-top: 5%;
+    }
+
+    .proile-rating span {
+        color: #495057;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .profile-head .nav-tabs {
+        margin-bottom: 5%;
+    }
+
+    .profile-head .nav-tabs .nav-link {
+        font-weight: 600;
+        border: none;
+    }
+
+    .profile-head .nav-tabs .nav-link.active {
+        border: none;
+        border-bottom: 2px solid #0062cc;
+    }
+
+    .profile-work {
+        padding: 14%;
+        margin-top: -15%;
+    }
+
+    .profile-work p {
+        font-size: 12px;
+        color: #818182;
+        font-weight: 600;
+        margin-top: 10%;
+    }
+
+    .profile-work a {
+        text-decoration: none;
+        color: #495057;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .profile-work ul {
+        list-style: none;
+    }
+
+    .profile-tab label {
+        font-weight: 600;
+    }
+
+    .profile-tab p {
+        font-weight: 600;
+        color: #0062cc;
+    }
+
+    .card-1 {
+        width: 400px;
+        border-radius: 18px;
+        border: none;
+    }
+
+    .card-2 {
+        border-radius: 20px;
+    }
+
+
+    .card-child {
+
+        border: 3px solid silver;
+        border-radius: 16px;
+
+    }
+
+
+
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        width: 275px;
+
+    }
+
+    .fa-ellipsis-v {
+        font-size: 10px;
+        color: #C2C2C4;
+        margin-top: 6px;
+        cursor: pointer;
+    }
+
+    .text-dark {
+        font-weight: bold;
+        margin-top: 8px;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    .card-bottom {
+        background: #3E454D;
+        border-radius: 6px;
+    }
+
+    .flex-column {
+        color: #adb5bd;
+        font-size: 13px;
+    }
+
+    .flex-column p {
+        letter-spacing: 1px;
+        font-size: 18px;
+    }
+
+    .btn-secondary {
+        height: 40px !important;
+        margin-top: 3px;
+    }
+
+    .btn-secondary:focus {
+        box-shadow: none;
+    }
+</style>

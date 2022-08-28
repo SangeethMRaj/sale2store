@@ -1,0 +1,62 @@
+<div class="row m-0">
+    <div class="col-md-6 m-auto">
+        <div class="containor mt-5 pl-5">
+            <h2 class="text-center">Add Category</h2>
+            <form action="/admin/add-category" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" class="form-control" id="addcategory" name="category"
+                        onkeyup="validatecategory()">
+                    <span id="category-error" style="color:red"></span>
+                </div>
+               
+                    <label class="col-md-4">Image :</label>
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <div>
+                                <img style="width: 50px; height: auto;" src="/images/{{category.image.[0]}}" alt=""
+                                    id="imgview">
+                                <input type="file" class="form-control" onchange="viewImage(event)" name="Images"
+                                    multiple>
+                            </div>
+                        </div>
+                    </div>
+                <button type="submit" class="btn btn-primary" onclick="return validateall()">Add Category</button>
+                <span id="submitall-error"></span>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+
+<script defer src="https://cdn.crop.guide/loader/l.js?c=VRVNGT"></script>
+<script>
+    var categoryError = document.getElementById('category-error')
+    var submitallError = document.getElementById('submitall-error')
+
+    function validatecategory() {
+        category = document.getElementById('addcategory').value;
+        if (category.length == 0) {
+            categoryError.innerHTML = 'Category name is required';
+            return false;
+        }
+        categoryError.innerHTML = ''
+        return true;
+    }
+
+    function validateall() {
+        if (!validatecategory()) {
+            submitallError.innerHTML = '';
+            return false;
+        }
+    }
+</script>
+
+<script>
+    function viewImage(event) {
+        document.getElementById('imgview').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>

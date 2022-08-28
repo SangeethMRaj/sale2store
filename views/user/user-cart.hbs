@@ -1,0 +1,186 @@
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    <div class="wrapper">
+        <!-- BREADCRUMBS SETCTION START -->
+        <div class="breadcrumbs-section plr-200 mb-80 section">
+
+            <section id="page-content" class="page-wrapper section">
+
+                <!-- SHOP SECTION START -->
+                <div class="shop-section mb-80">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-12">
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <!-- shopping-cart start -->
+                                    <div class="tab-pane active" id="shopping-cart">
+                                        <div class="shopping-cart-content">
+                                            <form action="#">
+                                                <div class="table-content table-responsive mb-50">
+                                                    <table class="text-center">
+                                                        {{#if products}}
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="product-thumbnail">product</th>
+                                                                <th class="product-price">price</th>
+                                                                <th class="product-quantity">Quantity</th>
+
+                                                                <th class="product-remove">remove</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {{#each products}}
+                                                            <tr>
+
+                                                                <td class="product-thumbnail">
+                                                                    <div class="pro-thumbnail-img">
+                                                                        <img src="/images/{{this.product.image.[0]}}"
+                                                                            alt="">
+                                                                    </div>
+                                                                    <div class="pro-thumbnail-info text-left">
+                                                                        <h6 class="product-title-2">
+                                                                            <a href="#">{{this.product.name}}</a>
+                                                                        </h6>
+                                                                        <p>Size: {{this.product.size}}</p>
+                                                                        <p>Category: {{this.product.category}}</p>
+                                                                        <p>Color: {{this.product.color}}</p>
+                                                                    </div>
+                                                                </td>
+                                                                {{#if this.product.offer}}
+                                                                <td class="product-price">Rs {{this.product.offerPrice}}
+                                                                </td>
+                                                                {{else}}
+                                                                <td class="product-price">Rs {{this.product.price}}</td>
+                                                                {{/if}}
+                                                                
+                                                                <td class="product-quantity">
+                                                                
+                                                                    <div>
+                                                                        <button class="cart-item-count mr-3 border"
+                                                                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">-</button>
+                                                                        <span
+                                                                            id="{{this.product._id}}">{{this.quantity}}</span>
+                                                                        <button class="cart-item-count border ml-3"
+                                                                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">+</button>
+                                                                    </div>
+                                                                </td>
+                                                                {{!-- {{#if this.product.offer}}
+                                                                 <td class="product-price">Rs <span id="totalProductPrice">{{this.product.offerPrice}}</span></td>
+                                                                {{else}}
+                                                                <td class="product-price">Rs <span id="totalProductPrice">{{this.product.price}}</span></td>
+                                                                {{/if}} --}}
+
+                                                                <td>
+                                                                    <button href="" class="btn btn-danger"
+                                                                        onclick="deleteCartProducts('{{this._id}}','{{this.product._id}}')">Delete</button>
+                                                                </td>
+                                                            </tr>
+                                                            {{/each}}
+                                                        </tbody>
+                                                        {{else}}
+                                                        <div>
+                                                            <h1 class="text-center mt-5">Yout Cart is Empty !! Continue
+                                                                Shopping</h1>
+                                                        </div>
+                                                        <div class="d-flex justify-content-center mt-5 ">
+                                                            <img src="http://almureed.ae/assets/website/images/empty-cart.gif"
+                                                                class="img-fluid" alt="">
+                                                        </div>
+                                                        <div class="d-flex justify-content-center my-auto mt-5">
+                                                            <a href="/"
+                                                                class="btn box-shadow submit-btn-1 btn-hover-2">Continue
+                                                                Shopping</a>
+
+                                                            </a>
+                                                        </div>
+
+                                                        {{/if}}
+                                                    </table>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        {{#if products}}
+                                                        <div class="payment-details box-shadow p-30 mb-50">
+
+                                                            <h6 class="widget-title border-left mb-20">Order Place</h6>
+                                                            <table>
+                                                                {{!-- <tr>
+                                                                    <td class="td-title-1">Cart Subtotal</td>
+                                                                    <td class="td-title-2">$155.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="td-title-1">Shipping and Handing</td>
+                                                                    <td class="td-title-2">$15.00</td>
+                                                                </tr> --}}
+                                                                <tr>
+                                                                    <td class="td-title-1">Discount Offer</td>
+                                                                    <td class="td-title-2">Rs <span id="discounttotal">{{totalPrice.discount}}</span> </td>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td class="order-total">Order Total</td>
+                                                                    <td class="order-total-price">Rs <span id="total">{{totalPrice.total}}</span></td>
+                                                                    
+
+                                                                </tr>
+                                                            </table>
+
+                                                            <div class="">
+                                                                <a href="/place-order" class="btn "
+                                                                    style="background-color: rgb(246, 125, 3);  color: white;">Place
+                                                                    Order</a>
+                                                            </div>
+
+                                                        </div>
+                                                        {{else}}
+                                                        {{/if}}
+                                                    </div>
+
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                    <!-- shopping-cart end -->
+                                    <!-- wishlist start -->
+
+                                    <!-- wishlist end -->
+                                    <!-- checkout start -->
+
+                                    <!-- checkout end -->
+                                    <!-- order-complete start -->
+
+                                    <!-- order-complete end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SHOP SECTION END -->
+
+            </section>
+
+            <!-- End page content -->
+
+            <!-- START FOOTER AREA -->
+
+            <!-- END FOOTER AREA -->
+
+            <!--style-customizer start -->
+
+            <!--style-customizer end -->
+        </div>
+
+
+
+</body>

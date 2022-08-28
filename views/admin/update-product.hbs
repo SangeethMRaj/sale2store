@@ -1,0 +1,440 @@
+<!--  BEGIN CONTENT PART  -->
+<div id="content" class="main-content">
+    <div class="container">
+        <div class="page-header">
+            <div class="page-title">
+                <h3>Update Products</h3>
+               
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Update Product </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area add-manage-product-2">
+                        <div class="row">
+                            <div class="col-xl-7 col-md-12">
+                                <div class="card card-default">
+                                    <div class="card-heading">
+                                        <h2 class="card-title"><span>GENERAL</span></h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <form class="form-horizontal"
+                                                action="/admin/update-products/{{product._id}}" method="POST"
+                                                enctype="multipart/form-data">
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Name :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" id="contact-name" onkeyup="validatename()" value="{{product.name}}"
+                                                                name="name" type="text">
+                                                                <span id="name-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Description :</label>
+                                                        <div class="col-md-8">
+                                                            <input rows="4" cols="5" name="description" id="contact-description" value="{{product.description}}"
+                                                                class="form-control" onkeyup="validatedescription()"></input>
+                                                                 <span id="description-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Category :</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control form-custom"  name="category">
+                                                                <option value="{{product.category}}">Select category</option>
+                                                               {{#each category}}
+                                                                <option>{{this.category}}</option>
+                                                                
+                                                                {{/each}}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Color :</label>
+
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" id="contact-color" onkeyup="validatecolor()" name="color"
+                                                                value="{{product.color}}" type="text">
+                                                                <span id="color-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Size :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" id="contact-size" onkeyup="validatesize()" name="size"
+                                                                value="{{product.size}}" type="text">
+                                                                <span id="size-error" style="color:red ;"></span>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">SKU :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" name="sku" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Weight :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" id="contact-weight" onkeyup="validateweight()" name="weight"
+                                                                value="{{product.weight}}" type="text">
+                                                                <span id="weight-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Status :</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control  form-custom" name="status">
+                                                                <option value="">Please Select</option>
+                                                                <option>In Stock</option>
+                                                                <option>Out of Stock</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Visibility :</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control form-custom" name="visibility">
+                                                                <option value="">Please Select</option>
+                                                                <option value="yes">Yes</option>
+                                                                <option value="no">No</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                                {{!-- <div class="form-group cutom-autocomplete mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Country of Manufacture :</label>
+                                                        <div class="col-md-8">
+                                                            <input id="autocomplete" class="ui-corner-all form-control"
+                                                                placeholder="Type a Country...">
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+
+                                                  <div class="form-group cutom-autocomplete mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Country of Manufacture:</label>
+                                                        <div class="col-md-8">
+                                                            <input id="autocomplete" name="country" class="ui-corner-all form-control" value="{{product.country}}"
+                                                                 onkeyup="validatecountry()">
+                                                                 <span id="country-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Price :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" id="contact-price" onkeyup="validateprice()" name="price"
+                                                                value="{{product.price}}" type="text">
+                                                                <span id="price-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Tax Class :</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control form-custom" name="tax_class">
+                                                                <option value="">Please Select</option>
+                                                                <option value="tax1">None</option>
+                                                                <option value="tax2">Shipping</option>
+                                                                <option value="tax3">Taxable Goods</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Discount :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" id="contact-discount" onkeyup="validatediscount()" name="discount"
+                                                                value="{{product.discount}}" type="text">
+                                                                <span id="discount-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Coupon :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" name="coupon" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                                {{!-- <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4"></label>
+                                                        <div class="col-md-8">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck4">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck4">Check to Apply</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+
+                                                <div class="row">
+
+                                                    <div class="col-md-8">
+
+                                                        <div class="mb-3">
+                                                            
+                                                            <div>
+
+                                                               
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Image :</label>
+                                                        <div class="col-md-8">
+                                                            <img style="width: 50px; height: auto;"
+                                                                    src="/images/{{product.image.[0]}}" id="imgview">
+                                                                <input type="file" class="form-control"
+                                                                    value="{{product.image}}" onchange="viewImage(event)" name="images" multiple>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <label class="col-md-4">QTY :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" id="contact-qty" onkeyup="validateqty()" name="qty"
+                                                                value="{{product.qty}}" type="text">
+                                                                <span id="qty-error" style="color:red ;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- <div class="form-group">
+                                                    <div class="row">
+                                                        <label class="col-md-12"><span>KEYWORDS</span></label>
+                                                    </div>
+                                                </div> --}}
+                                                {{!-- <div class="form-group">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Keywords :</label>
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" name="keywords" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+
+                                                <div class="mx-auto mt-3" style=" width: fit-content;">
+                                                    <button type="submit" onclick=" return validateform()"  class="btn btn-primary">Submit</button>
+                                                    <span id="submit-error" style="color:red ;"></span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  END CONTENT PART  -->
+</div>
+<!-- END MAIN CONTAINER -->
+
+<!--  BEGIN FOOTER  -->
+
+<!--  END FOOTER  -->
+
+<!--  BEGIN CONTROL SIDEBAR  -->
+
+
+
+
+<script defer src="https://cdn.crop.guide/loader/l.js?c=VRVNGT"></script>
+<script>
+    function viewImage(event) {
+        document.getElementById('imgview').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>
+<script>
+    var nameError = document.getElementById('name-error')
+    var descriptionError = document.getElementById('description-error')
+    var categoryError = document.getElementById("category-error")
+    var colorError = document.getElementById('color-error')
+    var sizeError = document.getElementById('size-error')
+    var weightError = document.getElementById('weight-error')
+    var statusError = document.getElementById('status-error')
+    var countryError = document.getElementById('country-error')
+    var priceError = document.getElementById('price-error')
+    var discountError = document.getElementById('discount-error')
+    var qtyError = document.getElementById('qty-error')
+    var submitError = document.getElementById('submit-error')
+   
+
+    function validatename() {
+      var name = document.getElementById('contact-name').value;
+      if (name.length == 0) {
+        nameError.innerHTML = 'Name is required';
+        return false
+      }
+      nameError.innerHTML = '' 
+      return true;
+    }
+
+    function validatedescription() {
+      var description = document.getElementById('contact-description').value;
+      if(description.length == 0){
+        descriptionError.innerHTML = 'Description is required'
+        return false;
+      }
+      descriptionError.innerHTML = '' 
+      return true;
+    }
+
+    function validatecategory(){
+      var category=document.getElementById('contact-category')
+      if(category){
+       categoryError.innerHTML='category is required';
+        return false;
+        }
+  categoryError.innerHTML='';
+  return true;
+    }
+
+    function validatecolor(){
+      var color=document.getElementById('contact-color').value;
+      if(color.length==0){
+        colorError.innerHTML='Color is required'
+        return false;
+      }
+      colorError.innerHTML=''
+      return true;
+    }
+
+    function validatesize(){
+      var size=document.getElementById('contact-size').value;
+      if(size.length==0){
+        sizeError.innerHTML='Size is required'
+        return false;
+      }
+      sizeError.innerHTML=''
+      return true;
+    }
+
+    function validateweight(){
+      var weight=document.getElementById('contact-weight').value;
+      if(weight.length==0){
+        weightError.innerHTML='Weight is required'
+        return false;
+      }
+      weightError.innerHTML=''
+      return true;
+    }
+
+    function validatecountry(){
+      var country=document.getElementById('autocomplete').value;
+      if(country.length==0){
+        countryError.innerHTML='Country is required'
+        return false;
+      }
+     countryError.innerHTML=''
+      return true;
+    }
+
+    function validateprice(){
+      var price=document.getElementById('contact-price').value;
+      if(price.length==0){
+        priceError.innerHTML='Price is required'
+        return false;
+      }
+      if(!price.match(/^\d+$/)){
+       priceError.innerHTML='It should be digits'
+        return false;
+         }
+     priceError.innerHTML=''
+      return true;
+    }
+
+     function validatediscount(){
+      var discount=document.getElementById('contact-discount').value;
+      if(discount.length==0){
+        discountError.innerHTML='Discount is required'
+        return false;
+      }
+      if(!discount.match(/^\d+$/)){
+      discountError.innerHTML='It should be digits'
+        return false;
+         }
+     discountError.innerHTML=''
+      return true;
+    }
+
+    function validateqty(){
+      var qty=document.getElementById('contact-qty').value;
+      if(qty.length==0){
+        qtyError.innerHTML='qty is required'
+        return false;
+      }
+      if(!qty.match(/^\d+$/)){
+      qtyError.innerHTML='It should be digits'
+        return false;
+         }
+     qtyError.innerHTML=''
+      return true;
+    }
+    
+
+    function validateform(){
+      if(!validatename()||!validatedescription()||!validatecolor()||!validatesize()||!validateweight()||!validatecountry()||!validateprice()||!validatediscount()||!validateqty()){
+        submitError.innerHTML='Fill all the blanks'
+        return false;
+      }
+     
+    }
+</script>

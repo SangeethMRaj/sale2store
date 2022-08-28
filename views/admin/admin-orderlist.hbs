@@ -1,0 +1,129 @@
+
+<body>
+   
+  
+
+
+        <!--  BEGIN SIDEBAR  -->
+
+        
+
+        <!--  END SIDEBAR  -->
+
+        <!--  BEGIN CONTENT PART  -->
+        <div id="content" class="main-content">
+            <div class="container">
+                 
+
+                <div class="container mt-5">
+                    <div class="row margin-bottom-120 invoice-print">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-content invoice">
+                                    <div class="widget-content-area head-section mb-4">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-12 text-sm-left text-center">
+                                                <h3 class="in-heading mt-2 mb-2">Order Details</h3>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-content-area content-section">
+                                        <div class="row invoice-top-section">
+                                            
+                                            <div class="col-sm-6 mb-4">
+                                                <h5 class="invoice-info-title">Order Id:</h5>
+                                                <p class="invoice-serial-number" style="color:black">{{invoice.[0]._id}}</p>
+                                            </div>
+                                            <div class="col-sm-6 mb-4 text-sm-right">
+                                                <p class="invoice-order-status" style="color:black">Order Status: {{invoice.[0].status}}</p>
+                                                <p class="invoice-order-date" style="color:black">Order Date: {{invoice.[0].date}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-5 mb-5">
+                                            <div class="col-md-6 col-sm-6 invoice-from">
+                                                <h5 class="invoice-from-title mb-4">To address</h5>
+                                                <div class="row">
+                                                    <div class="col-12 mb-4">
+                                                        <p style="color:black">{{invoice.[0].address.name}}</p>  
+                                                        <p style="color:black">{{invoice.[0].address.address}}</p>
+                                                        <p style="color:black"> {{invoice.[0].address.city}}</p>
+                                                        <p style="color:black">{{invoice.[0].address.state}}</p>
+                                                        <p style="color:black">{{invoice.[0].address.pincode}}</p>
+                                                        <p style="color:black">{{invoice.[0].address.phone}}</p>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+
+                                        <div class="row mt-5 mb-5">
+                                            <div class="col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                                <th class="text-center" scope="col"><h4>Sl No:</h4></th>
+                                                                <th scope="col"><h4>Image</h4></th>
+                                                                <th class="text-center" ><h4>Product Name</h4></th>
+                                                                <th class="text-center" ><h4>Quantity</h4></th>
+                                                                <th class="text-center" ><h4>Payment Method</h4></th>
+                                                                <th class="text-center" ><h4>l No:</h4></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {{#each invoice}}
+                                                            <tr>
+                                                                <td class="text-center"><h5>{{inc @index}}</h5></td>
+                                                                <td > <img style="width: 60px; height: auto;" src="/images/{{this.item.image.[0]}}"</td>
+                                                                <td class="text-center"><h5>{{this.item.name}}</h5></td>
+                                                                <td class="text-center"><h5>{{this.quantity}}</h5></td>
+                                                                <td class="text-center"><h5>{{this.paymentMethod}}</h5></td>
+                                                                <td class="text-center"><h5>{{this.ProductPrice}}</h5></td>
+                                                            </tr>
+                                                            {{/each}}
+                                                        </tbody>
+                                                        
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-12">
+                                                <div class="invoice-total-amounts text-right">
+                                                    <div class="row">
+                                                        <div class="col-sm-10 col-7 text-right">
+                                                            <p style="color:black" class="mb-3">Subtotal: </p>
+                                                        </div>
+                                                        <div class="col-sm-2 col-5">
+                                                            <p style="color:red" class="mb-3"><strike>{{totalinvoiceprice.[0].total}}</strike></p>
+                                                        </div>
+                                                        <div class="col-sm-10 col-7 text-right">
+                                                            <p style="color:black" class="mb-3">Coupon Discount: </p>
+                                                        </div>
+                                                        <div class="col-sm-2 col-5">
+                                                            <p style="color:black" class="mb-3">{{couponDiscount}}</p>
+                                                        </div>
+                                                        <div class="col-sm-10 col-7 text-right">
+                                                            <h3 class="mb-3">Grand Total: </h3>
+                                                        </div>
+                                                        <div class="col-sm-2 col-5">
+                                                            <h1 style="color:green" class="mb-3">{{invoice.[0].totalAmount}}</h1>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</body>

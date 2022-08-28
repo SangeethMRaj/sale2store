@@ -1,0 +1,150 @@
+<div class="container">
+    <div class="row m-5">
+        <form action="/add-address" method="post">
+        {{#if signerr}}
+                <p class="error text-center" style="color: red;">Email already taken</p>
+            {{/if}}
+<div class="col-md-6">
+    <div class="billing-details pr-10">
+        <h6 class="widget-title border-left mb-20">Add adress</h6>
+        <label>Name</label>
+        <input type="text" id="name" name="name" onkeyup="validatename()">
+        <span id="name-error" style="color:red ;"></span><br>
+
+        <label>Email</label>
+        <input type="text" id="email" name="email" onkeyup="validateemail()">
+        <span id="email-error" style="color:red ;"></span><br>
+
+        <label>Mobile</label>
+        <input type="text" id="phone" name="phone" onkeyup="validatephone()">
+        <span id="phone-error" style="color:red ;"></span><br>
+
+        <label>State</label>
+        <input type="text" id="state" name="state" onkeyup="validatestate()">
+        <span id="state-error" style="color:red ;"></span><br>
+
+        <label>City</label>
+        <input type="text" id="city" name="city" onkeyup="validatecity()">
+        <span id="city-error" style="color:red ;"></span><br>
+
+        <label>Pincode</label>
+        <input type="text" id="pincode" name="pincode" onkeyup="validatepincode()">
+        <span id="pincode-error" style="color:red ;"></span><br>
+
+        <label>Address</label>
+        <textarea class="custom-textarea" type="text" id="address" name="address" onkeyup="validateaddress()"
+            ></textarea>
+            <span id="address-error" style="color:red ;"></span>
+        <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+    </div>
+    <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+    onclick="return validateform()">Add Address</button>
+    <span id="submit-error" style="color:red ;"></span>
+</div>
+</form>
+</div>
+</div>
+
+<script>
+    var nameError = document.getElementById('name-error')
+    var emailError = document.getElementById('email-error')
+    var phoneError = document.getElementById("phone-error")
+    var stateError = document.getElementById('state-error')
+    var cityError = document.getElementById('city-error')
+    var pincodeError = document.getElementById('pincode-error')
+    var addressError=document.getElementById('address-error')
+    var submitError=document.getElementById('submit-error')
+
+    function validatename() {
+      var name = document.getElementById('name').value;
+      if (name.length == 0) {
+        nameError.innerHTML = 'Name is required';
+        return false
+      }
+      nameError.innerHTML = '' 
+      return true;
+    }
+
+    function validateemail() {
+      var email = document.getElementById('email').value;
+
+      if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3}))$/.test(email)) {
+        emailError.innerHTML = '';
+        return true;
+      }
+      else {
+        emailError.innerHTML = 'Email Invalid'
+        return false;
+
+      }
+    }
+
+    function validatephone(){
+      var phone=document.getElementById('phone').value;
+      if(phone.length==0){
+        phoneError.innerHTML='Phone No: is required';
+        return false;
+  }
+  if(phone.length!=10){
+        phoneError.innerHTML='Number should be 10 digits';
+        return false;
+  }
+  if(!phone.match(/^[0-9]{10}$/)){
+    phoneError.innerHTML='It should be digits';
+        return false;
+  }
+  phoneError.innerHTML='';
+  return true;
+    }
+
+    function validatestate(){
+      var state=document.getElementById('state').value;
+      if(state.length==0){
+        stateError.innerHTML='State is required'
+        return false;
+      }
+      stateError.innerHTML=''
+      return true;
+    }
+
+     function validatecity(){
+      var city=document.getElementById('city').value;
+      if(city.length==0){
+        cityError.innerHTML='City is required'
+        return false;
+      }
+      cityError.innerHTML=''
+      return true;
+    }
+    function validatepincode(){
+      var pincode=document.getElementById('pincode').value;
+      if(pincode.length==0){
+        pincodeError.innerHTML='Pincode is required'
+        return false;
+      }
+      if(!pincode.match(/^\d+$/)){
+       pincodeError.innerHTML='It should be digits'
+        return false;
+         }
+      pincodeError.innerHTML=''
+      return true;
+    }
+
+    function validateaddress(){
+      var address=document.getElementById('address').value;
+      if(address.length==0){
+        addressError.innerHTML='Address is required'
+        return false;
+      }
+      addressError.innerHTML=''
+      return true;
+    }
+
+    function validateform(){
+      if(!validatename()||!validateemail()||!validatephone()||!validatestate()||!validatecity()||!validatepincode()||!validateaddress()){
+        submitError.innerHTML='Fill all the blanks'
+        return false;
+      }
+     
+    }
+</script>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  {{#if admin}}
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Register-2 | Equation - Multipurpose Bootstrap Dashboard Template </title>
+    <link rel="icon" type="image/x-icon" href="/admin-login/assets/img/favicon.ico"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="/admin-login/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/admin-login/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="/admin-login/assets/css/users/register-2.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->   
+
+
+
+
+  
+
+</head>
+
+  {{else}}
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Subas || Home-4</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.png">
+
+    <!-- All CSS Files -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="/user-public/css/bootstrap.min.css">
+    <!-- Nivo-slider css -->
+    <link rel="stylesheet" href="/user-public/lib/css/nivo-slider.css">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="/user-public/css/core.css">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="/user-public/css/shortcode/shortcodes.css">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="/user-public/css/style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="/user-public/css/responsive.css">
+    <!-- User style -->
+    <link rel="stylesheet" href="/user-public/css/custom.css">
+    
+    <!-- Style customizer (Remove these two lines please) -->
+    <link rel="stylesheet" href="/user-public/css/style-customizer.css">
+    <link href="#" data-style="styles" rel="stylesheet">
+
+    <!-- Modernizr JS -->
+    <script src="/user-public/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  </head>
+
+
+  
+{{/if}}
+
+
+{{#if admins}}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>amCharts Line &amp; Area Charts | Equation - Multipurpose Bootstrap Dashboard Template </title>
+    <link rel="icon" type="image/x-icon" href="/admin-public/assets/img/favicon.ico"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="/admin-public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/admin-public/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN CUSTOM STYLE FILE -->
+    <style>
+        #valueaxischartdiv, #changingcolorchartdiv, #zoomablechartdiv { width: 100%; height: 500px; font-size: 11px; }
+        #smoothchartdiv, #differentcolorchartdiv { width: 100%; height: 400px; font-size: 11px; }	
+    </style>
+    <!-- END CUSTOM STYLE FILE -->    
+    
+</head>
+{{/if}}
+
+
+  <body>
+    {{#if admins}}
+    {{>admins-header}}
+    {{/if}}
+    {{#if users}}
+    {{>user-header}}
+    {{/if}}
+   
+    {{{body}}}
+    {{#if users}}
+    <footer id="footer" class="footer-area section">
+            <div class="footer-top">
+                <div class="container-fluid">
+                    <div class="plr-185">
+                        <div class="footer-top-inner theme-bg">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-5 col-md-5">
+                                    <div class="single-footer footer-about">
+                                        <div class="footer-logo">
+                                            <img src="img/logo/logo.png" alt="">
+                                        </div>
+                                        <div class="footer-brief">
+                                            <p>*	Actual product may differ slightly in appearance to illustrations/ picture provided.
+                                            </p>
+                                            <p>*	Features, Specification, weight & price are subject to change without prior notice.</p>
+                                            <p>*	While efforts have been placed to provide accurate information, there could be human errors which may crept in.</p>
+                                        </div>
+                                        <ul class="footer-social">
+                                            <li>
+                                                <a class="facebook" title="Facebook"><i
+                                                        class="zmdi zmdi-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="google-plus" title="Google Plus"><i
+                                                        class="zmdi zmdi-google-plus"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="twitter" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="rss" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 d-block d-xl-block d-lg-none d-md-none">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">Shipping</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>New Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Discount Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Best Sell Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Popular Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Manufactirers</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Suppliers</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Special Products</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-3">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">my account</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>My Account</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>My Wishlist</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>My Cart</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Sign In</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Registration</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Check out</span></a>
+                                            </li>
+                                            <li>
+                                                <a><i class="zmdi zmdi-circle"></i><span>Oder Complete</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom black-bg">
+                <div class="container-fluid">
+                    <div class="plr-185">
+                        <div class="copyright">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="copyright-text">
+                                        <p class="copy-text"> © 2022 <strong>Sony</strong> Made With <i class="zmdi zmdi-favorite" style="color: red;" aria-hidden="true"></i> By <a class="company-name" href="">
+                                <strong> Sale2Strong</strong></a>.</p>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {{/if}}
+
+
+
+
+    
+    {{#if admin}}
+     <script src="/admin-login/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="/admin-login/bootstrap/js/popper.min.js"></script>
+    <script src="/admin-login/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+   {{!-- Test --}}
+
+    
+    
+    
+    {{else}}
+    <script src="/user-public/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/user-public/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <!-- Bootstrap framework js -->
+    <script src="/user-public/js/bootstrap.bundle.min.js"></script>
+    <!-- jquery.nivo.slider js -->
+    <script src="/user-public/lib/js/jquery.nivo.slider.js"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="/user-public/js/plugins.js"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="/user-public/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/javascripts/script.js"></script>
+    {{/if}}
+
+
+    {{#if admins}}
+    <script src="/admin-public/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="/admin-public/bootstrap/js/popper.min.js"></script>
+    <script src="/admin-public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/admin-public/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/admin-public/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="/admin-public/assets/js/app.js"></script>
+   
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="/admin-public/assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="/admin-public/plugins/charts/amcharts/amcharts.js"></script>
+    <script src="/admin-public/plugins/charts/amcharts/serial.js"></script>
+    <script src="/admin-public/plugins/charts/amcharts/light.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+    <!-- BEGIN CUSTOM SCRIPTS FILE -->
+    <script src="/admin-public/plugins/charts/amcharts/line_and_areachart.js"></script>
+    {{/if}}
+
+  </body>
+</html>

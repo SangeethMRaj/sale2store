@@ -1,0 +1,302 @@
+<!--  BEGIN CONTENT PART  -->
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+
+<div id="content" class="main-content">
+    <div class="container">
+        <div class="page-header">
+            <div class="page-title">
+                <h3>ADMIN DASHBOARD</h3>
+                <div class="crumbs">
+                
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 layout-spacing">
+                        <div class="widget-content widget-content-area h-100 br-4">
+
+                            <div class="widget t-sales-widget">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="mb-4">Total Sales Amount</h2>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-md-12  mt-4">
+                                        <h3 class="t-s-value mb-0">Rs {{totalAmount}}</h3>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 layout-spacing">
+                        <div class="widget-content widget-content-area h-100 br-4">
+
+                            <div class="widget t-profit-widget">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="mb-4">Total COD</h2>
+                                    </div>
+                                   
+                                    <div class="col-md-12  mt-4">
+                                        <h3 class="t-s-value mb-0">Rs {{cod.[0].total}}</h3>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 layout-spacing">
+                        <div class="widget-content widget-content-area h-100 br-4">
+
+                            <div class="widget t-orders-widget">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="mb-4">Total Razorpay</h2>
+                                    </div>
+                                    
+                                    <div class="col-md-12  mt-4">
+                                        <h3 class="t-s-value mb-0">Rs {{razorpay.[0].total}}</h3>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 layout-spacing">
+                        <div class="widget-content widget-content-area h-100 br-4">
+
+                            <div class="widget t-shipments-widget">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="mb-4">Total Paypal</h2>
+                                    </div>
+                                    
+                                    <div class="col-md-12  mt-4">
+                                        <h3 class="t-s-value mb-0">Rs {{paypal.[0].total}}</h3>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+        <div class="row layout-spacing">
+            <div class="col-lg-12">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Payment  Methods</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area">
+                        <div class="row">
+                            <div class="col-lg-12 mb-4">
+                                <canvas id="myChart">
+
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row layout-spacing">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Products</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area">
+                        <div class="row">
+                            <div class="col-lg-12 mb-4">
+                                <canvas id="myPieChart">
+
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- <div class="col-lg-6">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Line &amp; Area <small>Line with different negative color</small></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area">
+                        <div class="row">
+                            <div class="col-lg-12 mb-4">
+                                <canvas id="myLineChart">
+
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+
+
+
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+        let paymentChart = new Chart(myChart, {
+            type: 'bar',
+            data: {
+                labels: ['COD', 'Razorpay', 'Paypal','Wallet'],
+                datasets: [{
+                    label: 'Payment',
+                    data: [
+                        {{cod.[0].total}},
+                        {{razorpay.[0].total}},
+                        {{paypal.[0].total}},
+                        {{wallet.[0].total}}
+                    ],
+                    backgroundColor:[
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(35, 7, 77, 0.6)',
+                    'rgba(213, 15, 61, 0.6)',
+                    'rgba(145,30,99,08)'
+                    ],
+                    hoverBorderWidth:3,
+                    hoverBorderColor:'#000'
+                }]
+            },
+            options: {
+                title:{
+                    display:true,
+                    text:'Payments Method',
+                    fontSize:25
+                },
+                legend:{
+                    position:'right'
+                }
+            }
+        });
+
+
+
+        let myPieChart = document.getElementById('myPieChart').getContext('2d');
+        let paymentPieChart = new Chart(myPieChart, {
+            type: 'pie',
+            data: {
+                labels: ['Xperia 1 III', 'Xperia 1 iv', 'Xperia 5 III','Xperia PRO','BRAVIA XR A80K','BRAVIA XR X90K','BRAVIA XR A90J','BRAVIA XR Z9K',
+                'Alpha 7 III','Alpha 7R II','Alpha 7 II','Alpha 7 IV'],
+                datasets: [{
+                    label: 'Payment',
+                    data: [
+                        {{productGraph.[0].product}},
+                        {{productGraph.[1].product}},
+                        {{productGraph.[2].product}},
+                        {{productGraph.[3].product}},
+                        {{productGraph.[4].product}},
+                        {{productGraph.[5].product}},
+                        {{productGraph.[6].product}},
+                        {{productGraph.[7].product}},
+                        {{productGraph.[8].product}},
+                        {{productGraph.[9].product}},
+                        {{productGraph.[10].product}},
+                        {{productGraph.[11].product}}
+                       
+                    ],
+                    backgroundColor:[
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(35, 7, 77, 0.6)',
+                    'rgba(213, 15, 61, 0.6)',
+                    'rgba(190, 80, 120)',
+                    'rgba(160,50,110)',
+                    'rgba(170,30,130)',
+                    'rgba(210,0,0,1)',
+                    'rgba(123,45,65)',
+                    'rgba(255, 165, 0)',
+                    'rgb(106, 90, 205)',
+                    'rgb(0, 0, 255)',
+                    'rgb(60, 179, 113)'
+
+                    ],
+                    hoverBorderWidth:3,
+                    hoverBorderColor:'#000'
+                }]
+            },
+            options: {
+                title:{
+                    display:true,
+                    text:'Payments Method',
+                    fontSize:25
+                },
+                legend:{
+                    position:'right'
+                }
+            }
+        });
+
+
+        let myLineChart = document.getElementById('myLineChart').getContext('2d');
+        let paymentLineChart = new Chart(myLineChart, {
+            type: 'bar',
+            data: {
+                labels: ['Xperia 1 III', 'Xperia 1 iv', 'Xperia 5 III','Xperia PRO'],
+                datasets: [{
+                    label: 'Payment',
+                    data: [
+                        {{productGraph.[0].product}},
+                        {{productGraph.[1].product}},
+                        {{productGraph.[2].product}},
+                        {{productGraph.[3].product}},
+                        
+                       
+                    ],
+                    backgroundColor:[
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(35, 7, 77, 0.6)',
+                    'rgba(213, 15, 61, 0.6)',
+                    'rgba(190, 80, 120)'
+                    ],
+                    hoverBorderWidth:3,
+                    hoverBorderColor:'#000'
+                }]
+            },
+            options: {
+                title:{
+                    display:true,
+                    text:'Payments Method',
+                    fontSize:25
+                },
+                legend:{
+                    position:'right'
+                }
+            }
+        }); 
+    </script>
+</body>

@@ -1,0 +1,53 @@
+
+
+    <form class="form-register" action="/admin/admin-login" method="POST">
+        <div class="row">
+            <div class="col-md-12 text-center mb-4">
+                <img alt="logo" src="/admin-public/assets/img/logo-3.png" class="theme-logo">
+            </div>
+
+            <div class="col-md-12">
+
+                <label for="username" class="sr-only">Username</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="icon-username"><i class="flaticon-user-7"></i> </span>
+                    </div>
+                    <input type="text" id="username" name="Name" class="form-control" placeholder="Username" aria-describedby="username" required >
+                </div>
+
+                {{!-- <label for="inputEmail" class="sr-only">Email address</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="icon-inputEmail"><i class="flaticon-email-fill-2"></i> </span>
+                    </div>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" aria-describedby="inputEmail" required >
+                </div> --}}
+                
+                <label for="inputPassword" class="sr-only">Password</label>
+                
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="icon-inputPassword"><i class="flaticon-key-2"></i> </span>
+                    </div>
+                    <input type="password" id="inputPassword" name="Password" class="form-control" placeholder="Password" aria-describedby="inputPassword" required >
+                </div>
+                
+                {{!-- <div class="checkbox d-flex justify-content-center mt-3">
+                    <div class="custom-control custom-checkbox mr-3">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" value="remember-me">
+                        <label class="custom-control-label" for="customCheck1">Remember me</label>
+                    </div>                    
+                </div> --}}
+                
+                <button class="btn btn-lg btn-gradient-warning btn-block btn-rounded mb-4 mt-5" type="submit">Login</button>
+                 {{!-- <div class="forgot-pass text-center">
+                    <a href="user_pass_recovery_2.html">Forgot Password ?</a>
+                </div> --}}
+
+            </div>
+
+        </div>
+    </form>
+    
+ 

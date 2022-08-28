@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <h2 class="panel-title" style="text-align:center">
+                        Wallet History
+                    </h2>
+                </div>
+                {{#if transaction}}
+                    <ul class="list-group">
+                    
+                    <li class="list-group-item">
+                    <h4><b>Transactions</b></h4>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Order Id</th>
+                                 <th>PaymentMethod</th>
+                                 <th>Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each transaction}}
+                            <tr>
+                                <td>{{this.history.date}}</td>
+                                <td>{{this.orderId}}</td>
+                                <td>{{this.history.paymentMethod}}</td>
+                                <td>{{this.history.status}}</td>
+                                {{#if this.status}}
+                                <td style="color:green">+ {{this.walletAmount}}</td>
+                                {{else}}
+                                <td style="color:red">- {{this.returnAmount}}</td>
+                                {{/if}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    </li> 
+                </ul>
+                {{else}}
+                <h1 class="m-5" style="text-align:center">No Transactions</h1>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

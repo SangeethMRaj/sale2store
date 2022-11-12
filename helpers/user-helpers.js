@@ -923,8 +923,8 @@ module.exports = {
                     "payment_method": "paypal"
                 },
                 "redirect_urls": {
-                    "return_url": "http://localhost:3000/success",
-                    "cancel_url": "http://localhost:3000/cancel"
+                    "return_url": "http://sale2store.store/success",
+                    "cancel_url": "http://sale2store.store/cancel"
                 },
                 "transactions": [{
                     "item_list": {

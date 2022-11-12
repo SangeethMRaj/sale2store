@@ -357,12 +357,9 @@
             method:'post',
             data:$('#coupon-form').serialize(),
             success:(response)=>{
-                console.log('fgerwggerww')
-                console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-                console.log(response.totalPrice)
-                console.log(response.totalPrice.total)
-                console.log(response)
                 if(response.userExist){
+                    console.log('coupon response in script')
+                    console.log(response.userExist)
                     document.getElementById('coupon-label').innerHTML='The Coupon is used'
                 }else if(response.couponExp){ 
                     document.getElementById('coupon-label').innerHTML='The Coupon is expired'

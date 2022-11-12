@@ -49,7 +49,7 @@ router.get('/', async (req, res, next) => {
   })
   
     
-});
+});  
 
 router.get('/login', function (req, res) { 
   if (req.session.loggedIn) {
@@ -124,8 +124,8 @@ router.post('/login', (req, res) => {
       req.session.loginErr = true
       res.redirect('/login')
     }
-  })  
-})
+  })   
+}) 
  
 router.get('/user-singleproduct/:id' ,async (req, res) => {
   try{
@@ -442,6 +442,7 @@ router.post('/remove-wishlistproducts',(req,res)=>{
 router.post('/apply-coupon',async(req,res)=>{
   let products= await userHelpers.getCartProductList(req.body.user)
   userHelpers.applyCoupon(req.body,products).then((response)=>{
+    console.log(response);
     res.json(response)
       
   })
